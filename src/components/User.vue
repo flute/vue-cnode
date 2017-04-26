@@ -66,6 +66,7 @@ export default{
 	width: 70%;
     margin: 0 auto;
     padding-top: 50px;
+    text-align: center;
 }
 .user-avatar{
 	display: inline-flex;
@@ -84,6 +85,10 @@ export default{
     background: #fff;
     font-size: 12px;
     padding: 60px 0 10px 0;
+    text-align: center;
+}
+.user-info p{
+	text-align: center;
 }
 .user-name{
 	font-size: 18px;

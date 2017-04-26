@@ -4,6 +4,9 @@ import Hello from '@/components/Hello'
 import Home from '@/components/Home'
 import Article from '@/components/Article'
 import User from '@/components/User'
+import Message from '@/components/Message'
+import Publish from '@/components/Publish'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -11,8 +14,7 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			name: 'Hello',
-			component: Hello
+			redirect: '/home'
 		},
 		{
 			path: '/home',
@@ -28,6 +30,21 @@ export default new Router({
 			path: '/user/:name',
 			name: 'user',
 			component: User
+		},
+		{
+			path: '/messages',
+			name: 'message',
+			component: Message
+		},
+		{
+			path: '/post',
+			name: 'publish',
+			component: Publish
+		},
+		{
+			path: '/about',
+			name: 'about',
+			component: About
 		}
 	]
 })

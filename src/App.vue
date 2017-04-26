@@ -1,16 +1,26 @@
 <template>
 	<div id="app">
 		<VHeader></VHeader>
+		<VAside></VAside>
+		<VLogin></VLogin>
+		<VAbout></VAbout>
 		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import VHeader from './components/header.vue';
+import VHeader from './components/header.vue'
+import VAside from './components/Aside.vue'
+import VLogin from './components/Login.vue'
+import VAbout from './components/About.vue'
+
 export default {
 	name: 'app',
 	components:{
-		VHeader
+		VHeader,
+		VAside,
+		VLogin,
+		VAbout
 	}
 }
 </script>
@@ -19,6 +29,7 @@ export default {
 *{
 	margin: 0;
 	padding: 0;
+	text-align: left;
 }
 #app{
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -28,10 +39,11 @@ export default {
 	color: #2c3e50;
 	min-height: 100vh;
 	background: #efefef;
+	position: relative;
 }
 ul li{
 	list-style: none;
-
+	text-align: left;
 }
 a{
 	color: deepskyblue;

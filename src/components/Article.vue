@@ -1,6 +1,6 @@
 <template>
 	<div class="article">
-		<div class="content">
+		<div class="content" v-show="!loading">
 			<div class="atop">
 				<div class="atitle">
 					{{datas.title}}
@@ -11,7 +11,7 @@
 			</div>
 			<div class="md" v-html="datas.content"></div>
 		</div>
-		<div class="acomment">
+		<div class="acomment" v-show="!loading">
 			<div class="reply_count">{{datas.reply_count}} 条回复</div>
 			<div class="acomment-item" v-for="(item,index) in datas.replies">
 				<div class="acomment-avatar">
@@ -20,15 +20,17 @@
 				<div class="acomment-content">
 					<p>
 						<span class="reply-name"><router-link :to="{name:'user',params:{name:item.author.loginname}}">{{item.author.loginname}}</router-link></span> 
-						
 					</p>
 					<p v-html="item.content"></p>
 				</div>
 				<div class="acomment-option">
-					<span class="reply-info">{{index}}楼 {{changeTime(item.create_at)}}</span>
+					<span class="reply-info">{{index+1}}楼 {{changeTime(item.create_at)}}</span>
 					<span class="up"><icon name="thumbs-o-up"></icon>{{item.ups.length}}</span>
 				</div>
 			</div>
+		</div>
+		<div class="loading" v-show="loading">
+			<i class="icon-more"></i>
 		</div>
 	</div>
 </template>
@@ -46,17 +48,19 @@ export default{
 			},
 			id: this.$route.params.id,
 			datas:[],
-			author:''
+			author:'',
+			loading:true
 		}
 	},
 	methods:{
 		fetchData(){
+			this.loading = true
 			this.axios.get('https://cnodejs.org/api/v1/topic/'+this.id)
 			.then(result => result.data.data)
 			.then(res => {
 				this.datas = res;
 				this.author = res.author.loginname
-				//console.log(this.datas) 
+				this.loading = false
 			})
 			.catch(function(err){
 				console.error(err)
@@ -72,6 +76,7 @@ export default{
 <style>
 .article{
 	background: #efefef;
+	text-align: center;
 }
 .md{
 	text-align: left;
@@ -101,7 +106,7 @@ export default{
 .md ul li{
 	list-style-type: disc;
 }
-.md ul{
+.md ul,.md ol,.markdown-text ol,.markdown-text ul{
 	margin: 0 0 10px 25px;
 }
 .md hr{
@@ -132,7 +137,6 @@ blockquote {
 }
 .acomment-item{
 	display: flex;
-    align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid #eee;
 }
@@ -140,10 +144,14 @@ blockquote {
 	width: 40px;
 	height: 40px;
 	border-radius: 5px;
+	background: burlywood;
+    border: 1px solid #eee;
 }
 .acomment-option{
 	font-size: 12px;
     display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .acomment-content{
 	flex: 1;
@@ -200,5 +208,12 @@ blockquote {
 	max-width: 100%;
 	display: block;
     margin: 5px 0;
+    box-shadow: 0 0 10px #eee;
+}
+.acomment-avatar{
+	display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 </style>

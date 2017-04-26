@@ -1,5 +1,6 @@
 <template lang="html">
 	<div class="header">
+		<div class="menu" v-on:click="showAside"><icon name="bars"></icon></div>
 		<h1><router-link :to="{name:'home'}">{{name}}</router-link></h1>
 	</div>
 </template>
@@ -11,6 +12,11 @@ export default{
 		return{
 			name:'CNode'
 		}
+	},
+	methods:{
+		showAside(){
+			this.$store.commit('showAside',true)
+		}
 	}
 }
 </script>
@@ -21,8 +27,17 @@ export default{
     line-height: 60px;
 	background: darkseagreen;
 }
-h1 a{
+.header h1{
+	text-align: center;
+}
+.header h1 a{
 	text-align: center;
 	color: #ffffff;
+}
+.menu{
+	position: absolute;
+    margin-left: 20px;
+    cursor: pointer;
+    color: #fff;
 }	
 </style>

@@ -61,7 +61,6 @@ export default {
 			.then(res => {
 				this.datas = res;
 				this.loading = false;
-				//console.log(this.datas) 
 			})
 			.catch(function(err){
 				console.error(err)
@@ -103,6 +102,7 @@ export default {
 	cursor: pointer;
 	color: #ffffff;
 	font-size: 16px;
+	font-weight: 500;
 }
 .tabbar span.active{
 	color: #000000;
@@ -119,11 +119,14 @@ export default {
 }
 .home{
     padding-bottom: 10px;
+    text-align: center;
 }
 .avatar{
 	width: 40px;
 	height: 40px;
 	border-radius: 5px;
+	background: burlywood;
+    border: 1px solid #eee;
 }
 .item-time{
 	font-size: 12px;
