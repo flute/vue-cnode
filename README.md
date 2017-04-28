@@ -2,6 +2,13 @@
 
 > A Vue.js project
 
+
+# [demo](http://45.78.40.158:8080/)
+
+### 技术栈：vue2+vuex+vue-router
+
+### 脚手架：vue-cli
+
 ## Build Setup
 
 ``` bash
