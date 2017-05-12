@@ -1,9 +1,9 @@
 # my-vue
 
-> A Vue.js project
+> 基于 Vue 的 Nodejs 社区——CNode
 
 
-# [demo](http://45.78.40.158:8080/)
+# [demo](https://www.ldsun.com/vue-cnode)
 
 ### 技术栈：vue2+vuex+vue-router
 
