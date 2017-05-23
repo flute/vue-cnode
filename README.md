@@ -3,7 +3,7 @@
 > 基于 Vue 的 Nodejs 社区——CNode
 
 
-# [demo](https://www.ldsun.com/vue-cnode)
+## [demo](https://www.ldsun.com/vue-cnode)
 
 ### 技术栈：vue2+vuex+vue-router
 
@@ -26,7 +26,7 @@ npm run build
 
 ```
 
-#项目目录
+## 项目目录
 
 ```bash
 .
